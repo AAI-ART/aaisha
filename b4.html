@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Inappropriate Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .report-form {
+            max-width: 400px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Report Inappropriate Content</h2>
+<form class="report-form" id="reportForm">
+    <div class="form-group">
+        <label for="reportType">Report Type:</label>
+        <select id="reportType" name="reportType" required>
+            <option value="">Select a type</option>
+            <option value="harassment">Harassment</option>
+            <option value="spam">Spam</option>
+            <option value="hate-speech">Hate Speech</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="evidence">Upload Evidence (optional):</label>
+        <input type="file" id="evidence" name="evidence" accept="image/*,.pdf">
+    </div>
+
+    <button type="submit">Submit Report</button>
+</form>
+
+<script>
+    document.getElementById('reportForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Implement form submission logic here, e.g., send to server
+        alert('Report submitted! Thank you for helping us maintain a safe environment.');
+    });
+</script>
+
+</body>
+</html>

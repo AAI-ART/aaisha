@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Messages</h1>
+    </header>
+
+    <section class="conversations">
+        <h2>Conversations</h2>
+        <ul id="conversationList">
+            <li class="conversation" data-user="User1">User 1</li>
+            <li class="conversation" data-user="User2">User 2</li>
+            <li class="conversation" data-user="User3">User 3</li>
+        </ul>
+    </section>
+
+    <section class="message-view">
+        <h2 id="currentUser">Select a conversation</h2>
+        <div id="messages" class="messages">
+            <p>No messages to display.</p>
+        </div>
+        <form id="messageForm">
+            <textarea id="messageInput" placeholder="Type your message here..." rows="3"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

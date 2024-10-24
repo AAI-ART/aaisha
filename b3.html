@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        input[type="text"], button {
+            padding: 10px;
+            margin: 5px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Friendship Management</h1>
+
+    <section>
+        <h2>Send Friend Request</h2>
+        <input type="text" id="friendName" placeholder="Enter friend's name">
+        <button onclick="sendFriendRequest()">Send Request</button>
+    </section>
+
+    <section>
+        <h2>Friend Requests</h2>
+        <ul id="friendRequests">
+            <!-- Friend requests will be displayed here -->
+        </ul>
+    </section>
+
+    <section>
+        <h2>Friend List</h2>
+        <ul id="friendList">
+            <!-- Friends will be displayed here -->
+        </ul>
+    </section>
+
+    <script>
+        let friendRequests = [];
+        let friends = [];
+
+        function sendFriendRequest() {
+            const friendName = document.getElementById('friendName').value;
+            if (friendName) {
+                friendRequests.push(friendName);
+                document.getElementById('friendName').value = '';
+                updateFriendRequests();
+            }
+        }
+
+        function updateFriendRequests() {
+            const requestsList = document.getElementById('friendRequests');
+            requestsList.innerHTML = '';
+            friendRequests.forEach((request, index) => {
+                requestsList.innerHTML += `<li>${request} <button onclick="acceptRequest(${index})">Accept</button> <button onclick="declineRequest(${index})">Decline</button></li>`;
+            });
+        }
+
+        function acceptRequest(index) {
+            friends.push(friendRequests[index]);
+            friendRequests.splice(index, 1);
+            updateFriendRequests();
+            updateFriendList();
+        }
+
+        function declineRequest(index) {
+            friendRequests.splice(index, 1);
+            updateFriendRequests();
+        }
+
+        function updateFriendList() {
+            const friendsList = document.getElementById('friendList');
+            friendsList.innerHTML = '';
+            friends.forEach(friend => {
+                friendsList.innerHTML += `<li>${friend}</li>`;
+            });
+        }
+    </script>
+
+</body>
+</html>
